@@ -1,7 +1,14 @@
 extends layout
 
 block content
-	h1 Home page
-	button.chooseFile Choose file
-	p File " " Uploaded
-	button.upload Upload
+	h1 File Size
+	form(action="/", method="POST", enctype="multipart/form-data")
+		.field
+			input(type="file", name="upl").chooseFile
+		.field
+			input(type="submit").submit
+	if file
+		h4 File name:
+			em= " " +  file.name
+		p= "File type: " + file.type
+		p= "File size: " + file.size + " bytes"
