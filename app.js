@@ -15,7 +15,6 @@ app.get("/", (req,res,next)=>{
 
 var storage = multer.memoryStorage();
 
-
 app.post("/", multer({storage: storage }).single('upl'), (req,res,next)=>{
 	let fileName = req.file.originalname;
 	let mimetype = req.file.mimetype;
